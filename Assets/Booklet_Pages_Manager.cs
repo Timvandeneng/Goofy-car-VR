@@ -7,12 +7,6 @@ public class Booklet_Pages_Manager : MonoBehaviour
     private int currentPage = 0;
     [SerializeField] private GameObject[] pages;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -23,13 +17,10 @@ public class Booklet_Pages_Manager : MonoBehaviour
     void handlePageControl()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentPage != 0)
-        {
             --currentPage;
-        }
+
         if(Input.GetKeyDown(KeyCode.Mouse1) && currentPage != pages.Length - 1)
-        {
-            ++currentPage;
-        }
+           ++currentPage;
     }
 
     void handlePagesDisplay()
