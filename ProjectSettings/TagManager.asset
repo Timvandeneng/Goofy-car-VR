@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Anchor
-  - Hand
+  - Rhand
+  - Lhand
   layers:
   - Default
   - TransparentFX

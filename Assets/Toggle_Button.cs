@@ -31,7 +31,7 @@ public class Toggle_Button : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Hand"))
+        if (other.CompareTag("Rhand") || other.CompareTag("Lhand"))
         {
             toggled = !toggled;
         }
