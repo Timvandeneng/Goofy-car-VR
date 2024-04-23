@@ -719,7 +719,7 @@ Transform:
   m_GameObject: {fileID: 1077544802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1300,7 +1300,7 @@ Transform:
   m_GameObject: {fileID: 1373535315}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0695}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1571}
   m_LocalScale: {x: 0.054244, y: 0.16587816, z: 0.054244}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1466,7 +1466,7 @@ Transform:
   m_GameObject: {fileID: 1430315731}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0745}
+  m_LocalPosition: {x: 0, y: 0, z: 0.013100013}
   m_LocalScale: {x: 0.054244, y: 0.11907101, z: 0.054244}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1653,6 +1653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Model: {fileID: 1974868150}
+  origin: {fileID: 1628008143}
   LhandModel: {fileID: 1680614375}
   LhandModelDummy: {fileID: 2050178880}
   RhandModel: {fileID: 1021700553}
@@ -2450,7 +2451,7 @@ Transform:
   m_GameObject: {fileID: 1974868149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0901}
+  m_LocalPosition: {x: 0, y: 0, z: -0.204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

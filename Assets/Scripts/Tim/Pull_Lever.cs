@@ -7,6 +7,9 @@ public class Pull_Lever : MonoBehaviour
     [SerializeField] private Transform Model;
     private Controller_manager controller;
 
+    Vector3 startpos;
+    [SerializeField] private Transform origin;
+
     [SerializeField] private GameObject LhandModel;
     [SerializeField] private GameObject LhandModelDummy;
     [SerializeField] private GameObject RhandModel;
@@ -19,11 +22,31 @@ public class Pull_Lever : MonoBehaviour
     void Start()
     {
         controller = GameObject.FindFirstObjectByType<Controller_manager>();
+        startpos = origin.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        CheckForReset();
+        MoveIfHeld();
+    }
+
+    void MoveIfHeld()
+    {
+        if (LActivated)
+        {
+            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, LhandModel.transform.position));
+        }
+        if (RActivated)
+        {
+            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, RhandModel.transform.position));
+        }
+    }
+
+    void CheckForReset()
+    {
+
         if (LActivated && !controller.leftHandTrigger)
         {
             LhandModel.SetActive(true);
@@ -31,7 +54,7 @@ public class Pull_Lever : MonoBehaviour
             LActivated = false;
         }
 
-        if(RActivated && !controller.rightHandTrigger)
+        if (RActivated && !controller.rightHandTrigger)
         {
             RhandModel.SetActive(true);
             RhandModelDummy.SetActive(false);
