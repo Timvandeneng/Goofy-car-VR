@@ -16,9 +16,6 @@ public class ModuleSpawner : MonoBehaviour {
     private List<int> moduleSelectionBag = new List<int>(); // Similar to a tetris bag, where you load all the numbers at once and shuffle so that you don't get any duplicates
 
     private List<GameObject> dummiesUsed = new List<GameObject>(); // A list used for the spawning of dummies
-
-    private string temp;
-
     private void Awake()
     {
         for(int i = 0; i < moduleSpawners.Count; i++) { // Populating the list with numbers from 1 to the amount of module spawners
