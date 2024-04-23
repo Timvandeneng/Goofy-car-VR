@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class Pull_Lever : MonoBehaviour
 {
+    [Header("Model Transforms")]
     [SerializeField] private Transform Model;
-    private Controller_manager controller;
-
-    Vector3 startpos;
     [SerializeField] private Transform origin;
 
-    [SerializeField] private GameObject LhandModel;
-    [SerializeField] private GameObject LhandModelDummy;
-    [SerializeField] private GameObject RhandModel;
-    [SerializeField] private GameObject RhandModelDummy;
+    [Header("Hand physics")]
+    public GameObject LhandModel;
+    public  GameObject LhandModelDummy;
+    public GameObject RhandModel;
+    public GameObject RhandModelDummy;
+
+    [Header("Lever physics")]
+    [SerializeField] private float maximumDistance;
+    [SerializeField] private float minimumDistance;
+
+    [Header("Output")]
+    public float AnalogOutput;
 
     private bool RActivated;
     private bool LActivated;
+
+    private Controller_manager controller;
+    private Vector3 startpos;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +39,19 @@ public class Pull_Lever : MonoBehaviour
     {
         CheckForReset();
         MoveIfHeld();
+        OutputVal();
     }
 
+    void OutputVal()
+    {
+        AnalogOutput = Vector3.Distance(startpos, Model.transform.position);
+
+        AnalogOutput = ExtensionMethods.Remap(AnalogOutput, maximumDistance, minimumDistance, 0, 1);
+
+        AnalogOutput = AnalogOutput - 3;
+    }
+
+   
     void MoveIfHeld()
     {
         if (LActivated)
@@ -42,6 +62,12 @@ public class Pull_Lever : MonoBehaviour
         {
             Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, RhandModel.transform.position));
         }
+
+        if(Model.localPosition.z < maximumDistance)
+            Model.localPosition =new Vector3(Model.localPosition.x, Model.localPosition.y, maximumDistance);
+        if (Model.localPosition.z > minimumDistance)
+            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, minimumDistance);
+
     }
 
     void CheckForReset()
@@ -77,5 +103,23 @@ public class Pull_Lever : MonoBehaviour
             RhandModelDummy.SetActive(true);
             RActivated = true;
         }
+    }
+}
+
+public static class ExtensionMethods
+{
+    public static float Remap(this float from, float fromMin, float fromMax, float toMin, float toMax)
+    {
+        var fromAbs = from - fromMin;
+        var fromMaxAbs = fromMax - fromMin;
+
+        var normal = fromAbs / fromMaxAbs;
+
+        var toMaxAbs = toMax - toMin;
+        var toAbs = toMaxAbs * normal;
+
+        var to = toAbs + toMin;
+
+        return to;
     }
 }

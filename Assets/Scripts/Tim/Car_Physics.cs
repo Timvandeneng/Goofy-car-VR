@@ -32,8 +32,8 @@ public class Car_Physics : MonoBehaviour
         SpeedHandler();
 
         //DELETE ME LATER THESE ARE DEBUG CONTROLS ONLY
-        //desiredAcceleration = Input.GetAxis("Vertical");
-        //desiredSteering = Input.GetAxis("Horizontal") * 25;
+        desiredAcceleration = Input.GetAxis("Vertical");
+        desiredSteering = Input.GetAxis("Horizontal") * 25;
     }
 
     void SpeedHandler()
