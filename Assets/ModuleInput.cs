@@ -5,8 +5,8 @@ public class ModuleInput : MonoBehaviour
     public KeyCode requiredKey;
 
     // Variables that 'Module' needs to access
-    public bool moduleBoolean;
-    public float moduleFloat;
+    public bool moduleInputBoolean;
+    public float moduleInputFloat;
 
     [HideInInspector]
     public bool completed;

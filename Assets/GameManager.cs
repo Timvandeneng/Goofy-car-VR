@@ -10,4 +10,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool turningRight;
     [HideInInspector] public bool braking;
     [HideInInspector] public bool breakingDown;
+
+    [HideInInspector] public float analogVariable; // This is just a general
 }
