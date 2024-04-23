@@ -17,6 +17,8 @@ public class Pull_Lever : MonoBehaviour
     [Header("Lever physics")]
     [SerializeField] private float maximumDistance;
     [SerializeField] private float minimumDistance;
+    [SerializeField] private float minOutput;
+    [SerializeField] private float maxOutput;
 
     [Header("Output")]
     public float AnalogOutput;
@@ -46,7 +48,7 @@ public class Pull_Lever : MonoBehaviour
     {
         AnalogOutput = Vector3.Distance(startpos, Model.transform.position);
 
-        AnalogOutput = ExtensionMethods.Remap(AnalogOutput, maximumDistance, minimumDistance, 0, 1);
+        AnalogOutput = ExtensionMethods.Remap(AnalogOutput, maximumDistance, minimumDistance, minOutput, maxOutput);
 
         AnalogOutput = AnalogOutput - 3;
     }
