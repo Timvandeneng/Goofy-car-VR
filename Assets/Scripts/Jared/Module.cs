@@ -22,6 +22,26 @@ public class Module : MonoBehaviour {
 
     private void Update()
     {
+        switch(moduleType) {
+            case ModuleType.Accelerate:
+                break;
+            case ModuleType.TurnLeft:
+                break;
+            case ModuleType.TurnRight:
+                break;
+            case ModuleType.Brake:
+                break;
+            case ModuleType.Breakdown:
+                break;
+        }
+    }
 
+    private void AccelerationLogic()
+    {
+         
+    }
+
+    private void TurnLogic(string turnType) {
+        
     }
 }

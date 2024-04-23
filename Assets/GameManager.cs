@@ -11,5 +11,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool braking;
     [HideInInspector] public bool breakingDown;
 
-    [HideInInspector] public float analogVariable; // This is just a general
+    // This is just a general control variable, instead of having a different float per direction just assign this to that direction
+    [HideInInspector] public float analogVariable;
 }
