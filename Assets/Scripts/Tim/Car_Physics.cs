@@ -7,6 +7,8 @@ public class Car_Physics : MonoBehaviour
 
     [HideInInspector] public Rigidbody rbody;
     
+    GameManager gameManager;
+
     [Header("Tire Physics")]
     public float raylength;
     public float springrestpos;
@@ -24,16 +26,19 @@ public class Car_Physics : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody>(); 
+
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!gameManager.canControl) return;
+
         SpeedHandler();
 
-        //DELETE ME LATER THESE ARE DEBUG CONTROLS ONLY
-        desiredAcceleration = Input.GetAxis("Vertical");
-        desiredSteering = Input.GetAxis("Horizontal") * 25;
+        desiredAcceleration = gameManager.carAcceleration;
+        desiredSteering = gameManager.carSteering;
     }
 
     void SpeedHandler()

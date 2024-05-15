@@ -7,8 +7,7 @@ public class ModuleSpawner : MonoBehaviour {
     public List<GameObject> moduleSpawners = new List<GameObject>();
 
     public List<GameObject> AccelerateModules = new List<GameObject>();
-    public List<GameObject> LeftModules = new List<GameObject>();
-    public List<GameObject> RightModules = new List<GameObject>();
+    public List<GameObject> TurnModules = new List<GameObject>();
     public List<GameObject> BrakeModules = new List<GameObject>();
     public List<GameObject> BreakdownModules = new List<GameObject>();
     public List<GameObject> DummyModules = new List<GameObject>();
@@ -38,27 +37,20 @@ public class ModuleSpawner : MonoBehaviour {
                     //currentAccelerateModule.transform.localScale = Vector3.one;
                     break;
                 case 2:
-                    GameObject currentLeftModule = LeftModules[UnityEngine.Random.Range(0, LeftModules.Count)];
+                    GameObject currentLeftModule = TurnModules[UnityEngine.Random.Range(0, TurnModules.Count)];
                     currentLeftModule.transform.SetParent(moduleSpawner.transform);
                     currentLeftModule.transform.localPosition = Vector3.zero;
                     currentLeftModule.transform.localRotation = Quaternion.identity;
                     //currentLeftModule.transform.localScale = Vector3.one;
                     break;
                 case 3:
-                    GameObject currentRightModule = RightModules[UnityEngine.Random.Range(0, RightModules.Count)];
-                    currentRightModule.transform.SetParent(moduleSpawner.transform);
-                    currentRightModule.transform.localPosition = Vector3.zero;
-                    currentRightModule.transform.localRotation = Quaternion.identity;
-                    //currentRightModule.transform.localScale = Vector3.one;
-                    break;
-                case 4:
                     GameObject currentBrakeModule = BrakeModules[UnityEngine.Random.Range(0, BrakeModules.Count)];
                     currentBrakeModule.transform.SetParent(moduleSpawner.transform);
                     currentBrakeModule.transform.localPosition = Vector3.zero;
                     currentBrakeModule.transform.localRotation = Quaternion.identity;
                     //currentBrakeModule.transform.localScale = Vector3.one;
                     break;
-                case 5:
+                case 4:
                     GameObject currentBreakdownModule = BreakdownModules[UnityEngine.Random.Range(0, BreakdownModules.Count)];
                     currentBreakdownModule.transform.SetParent(moduleSpawner.transform);
                     currentBreakdownModule.transform.localPosition = Vector3.zero;
