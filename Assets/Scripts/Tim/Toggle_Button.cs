@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Toggle_Button : MonoBehaviour
 {
+    ModuleInput moduleInput;
 
     [SerializeField] private Transform Model;
     [SerializeField] private Vector3 restingpos;
     [SerializeField] private Vector3 pushedpos;
     public bool toggled = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        moduleInput = GetComponent<ModuleInput>();
+
+        moduleInput.type = ModuleInput.InputType.Analog;
     }
 
     // Update is called once per frame
@@ -27,6 +29,8 @@ public class Toggle_Button : MonoBehaviour
         {
             Model.localPosition = restingpos;
         }
+
+        moduleInput.digitalValue = toggled;
     }
 
     private void OnTriggerEnter(Collider other)

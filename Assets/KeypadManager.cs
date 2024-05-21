@@ -9,6 +9,7 @@ public class KeypadManager : MonoBehaviour
     public string DesiredCombination;
 
     [SerializeField] private Keypad_Key[] Keys;
+    private ModuleInput moduleInput;
 
     [SerializeField] private float Timer;
     private float resetTimer;
@@ -17,6 +18,8 @@ public class KeypadManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        moduleInput = GetComponent<ModuleInput>();
+
         resetTimer = Timer;
     }
 
@@ -47,6 +50,7 @@ public class KeypadManager : MonoBehaviour
                     Keys[i].Correct();
                 }
                 CountDown = true;
+                moduleInput.digitalValue = true;
                 Combination = "";
             }
         }
@@ -65,6 +69,7 @@ public class KeypadManager : MonoBehaviour
             }
             Timer = resetTimer;
             CountDown = false;
+            moduleInput.digitalValue = false;
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pull_Lever : MonoBehaviour
 {
+    private ModuleInput moduleInput;
+
     [Header("Model Transforms")]
     [SerializeField] private Transform Model;
     [SerializeField] private Transform origin;
@@ -29,6 +31,13 @@ public class Pull_Lever : MonoBehaviour
     private Controller_manager controller;
     private Vector3 startpos;
 
+    private void Awake()
+    {
+        moduleInput = GetComponent<ModuleInput>();
+
+        moduleInput.type = ModuleInput.InputType.Analog;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +60,8 @@ public class Pull_Lever : MonoBehaviour
         AnalogOutput = ExtensionMethods.Remap(AnalogOutput, maximumDistance, minimumDistance, minOutput, maxOutput);
 
         AnalogOutput = AnalogOutput - 3;
+
+        moduleInput.analogValue = AnalogOutput;
     }
 
    

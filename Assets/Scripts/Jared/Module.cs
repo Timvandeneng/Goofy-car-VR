@@ -9,7 +9,8 @@ public class Module : MonoBehaviour {
         Accelerate,
         Turn,
         Brake,
-        Breakdown
+        Breakdown,
+        None
     }
 
     public ModuleType moduleType;
@@ -28,9 +29,9 @@ public class Module : MonoBehaviour {
     private void Update()
     {
         foreach(ModuleInput input in combination) {
-            if(input.type == ModuleInput.InputType.Digital && input.moduleInputBoolean) {
+            if(input.type == ModuleInput.InputType.Digital && input.digitalValue) {
                 userInputs.Add(input);
-                input.moduleInputBoolean = false;
+                input.digitalValue = false;
             }
         }
 
@@ -52,22 +53,27 @@ public class Module : MonoBehaviour {
                     break;
                 case ModuleType.Breakdown:
                     break;
+                case ModuleType.None: 
+                default:
+                    break;
             }
         }
     }
 
     private void AccelerationLogic()
     {
-        gameManager.carAcceleration = analogInput.moduleInputFloat;
+        gameManager.carAcceleration = analogInput.analogValue;
+        Debug.Log("Acceleration Logic");
     }
 
     private void TurnLogic()
     {
-        gameManager.carSteering = analogInput.moduleInputFloat;
+        gameManager.carSteering = analogInput.analogValue;
+        Debug.Log("Turn Logic");
     }
 
     private void BrakeLogic()
     {
-        gameManager.carAcceleration = -analogInput.moduleInputFloat;
+        gameManager.carAcceleration = -analogInput.analogValue;
     }
 }

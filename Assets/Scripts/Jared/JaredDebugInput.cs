@@ -17,7 +17,7 @@ public class JaredDebugInput : MonoBehaviour {
     void Update()
     {
         if(Input.GetKeyDown(requiredKey)) {
-            moduleInput.moduleInputBoolean = !moduleInput.moduleInputBoolean;
+            moduleInput.digitalValue = !moduleInput.digitalValue;
         }
     }
 }
