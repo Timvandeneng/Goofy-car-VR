@@ -20,6 +20,7 @@ public class KeypadManager : MonoBehaviour
     void Start()
     {
         moduleInput = GetComponent<ModuleInput>();
+        moduleInput.type = ModuleInput.InputType.Digital;
 
         resetTimer = Timer;
     }
@@ -51,7 +52,7 @@ public class KeypadManager : MonoBehaviour
                     Keys[i].Correct();
                 }
                 CountDown = true;
-                moduleInput.digitalValue = true;
+                moduleInput.completed = true;
                 Combination = "";
             }
         }
@@ -70,7 +71,7 @@ public class KeypadManager : MonoBehaviour
             }
             Timer = resetTimer;
             CountDown = false;
-            moduleInput.digitalValue = false;
+            moduleInput.completed = false;
         }
     }
 }

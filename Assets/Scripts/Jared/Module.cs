@@ -29,7 +29,7 @@ public class Module : MonoBehaviour {
     private void Update()
     {
         foreach(ModuleInput input in combination) {
-            if(input.type == ModuleInput.InputType.Digital && input.onToggle) {
+            if(input.type == ModuleInput.InputType.Digital && input.completed) {
                 //Debug.Log($"onToggle: {input.onToggle}");
                 userInputs.Add(input);
             }

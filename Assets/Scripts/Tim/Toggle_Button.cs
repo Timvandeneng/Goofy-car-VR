@@ -38,7 +38,7 @@ public class Toggle_Button : MonoBehaviour
             Model.localPosition = restingpos;
         }
 
-        moduleInput.digitalValue = toggled;
+        moduleInput.completed = toggled;
 
         if (!canToggle)
         {
