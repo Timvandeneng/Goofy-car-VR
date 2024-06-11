@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1643914447373784398}
   - component: {fileID: 1971010800769287981}
+  - component: {fileID: 6074011047496417015}
   m_Layer: 0
   m_Name: Keypad
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.806, z: -1.435}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7609867103745611941}
   m_Father: {fileID: 0}
@@ -48,11 +49,27 @@ MonoBehaviour:
   Combination: 
   DesiredCombination: 1234
   Keys:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4148875554625300091}
+  - {fileID: 6914257064106667935}
+  - {fileID: 6232815576522389645}
+  - {fileID: 8518988801954287201}
   Timer: 2
+--- !u!114 &6074011047496417015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7665869764524372326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d9099e38228c141a4101d2c9ca83d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  digitalValue: 0
+  analogValue: 0
+  onToggle: 0
 --- !u!1001 &7931143176131018574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -212,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1971010800769287981}
-  Number: 1
+  Number: 4
   normalMat: {fileID: 2100000, guid: 8dc8cfe3f01d8f64e97fb5ad14ad49d3, type: 2}
   SelectedMat: {fileID: 2100000, guid: 1d86324162d9fa2409070501fd2d2c76, type: 2}
   CorrectMat: {fileID: 2100000, guid: 464aedc492dd85741a34b7d0497e34c9, type: 2}
@@ -305,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1971010800769287981}
-  Number: 1
+  Number: 3
   normalMat: {fileID: 2100000, guid: 8dc8cfe3f01d8f64e97fb5ad14ad49d3, type: 2}
   SelectedMat: {fileID: 2100000, guid: 1d86324162d9fa2409070501fd2d2c76, type: 2}
   CorrectMat: {fileID: 2100000, guid: 464aedc492dd85741a34b7d0497e34c9, type: 2}
@@ -349,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1971010800769287981}
-  Number: 1
+  Number: 2
   normalMat: {fileID: 2100000, guid: 8dc8cfe3f01d8f64e97fb5ad14ad49d3, type: 2}
   SelectedMat: {fileID: 2100000, guid: 1d86324162d9fa2409070501fd2d2c76, type: 2}
   CorrectMat: {fileID: 2100000, guid: 464aedc492dd85741a34b7d0497e34c9, type: 2}
