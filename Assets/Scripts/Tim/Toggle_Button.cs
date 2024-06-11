@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ModuleInput))]
 public class Toggle_Button : MonoBehaviour
 {
     ModuleInput moduleInput;
@@ -10,6 +11,7 @@ public class Toggle_Button : MonoBehaviour
     [SerializeField] private Vector3 restingpos;
     [SerializeField] private Vector3 pushedpos;
     public bool toggled = false;
+    private bool previousFrameToggled = false;
 
     [Header("Debug settings")]
     [SerializeField] private float DebugTimer;

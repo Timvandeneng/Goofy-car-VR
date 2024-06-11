@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ModuleInput))]
 public class Keypad_Key : MonoBehaviour
 {
     [SerializeField] private KeypadManager manager;

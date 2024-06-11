@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ModuleInput : MonoBehaviour {
@@ -10,6 +11,8 @@ public class ModuleInput : MonoBehaviour {
 
     [HideInInspector] public bool digitalValue;
     [HideInInspector] public float analogValue;
+
+    [HideInInspector] public bool onToggle;
 
     //private void Update()
     //{
