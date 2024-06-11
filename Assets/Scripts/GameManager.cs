@@ -7,8 +7,13 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public bool braking;
     [HideInInspector] public bool breakingDown;
 
-    [HideInInspector] public bool canControl;
+    public bool canControl;
 
     [HideInInspector] public float carAcceleration;
     [HideInInspector] public float carSteering;
+
+    private void Update()
+    {
+        Debug.Log(carAcceleration);
+    }
 }

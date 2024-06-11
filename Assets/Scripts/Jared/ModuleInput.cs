@@ -13,6 +13,6 @@ public class ModuleInput : MonoBehaviour {
 
     //private void Update()
     //{
-    //    Debug.Log($"from {transform.name}: digital value: {digitalValue}, analog value: {analogValue}");
+    //    Debug.Log($"from {transform.name}: digital value: {digitalValue}, analog value: {0}");
     //}
 }

@@ -22,6 +22,9 @@ public class Pull_Lever : MonoBehaviour
     [SerializeField] private float minOutput;
     [SerializeField] private float maxOutput;
 
+    [Header("Working physics")]
+    [SerializeField] private Transform HandTracker;
+
     [Header("Output")]
     public float AnalogOutput;
 
@@ -42,7 +45,7 @@ public class Pull_Lever : MonoBehaviour
     void Start()
     {
         controller = GameObject.FindFirstObjectByType<Controller_manager>();
-        startpos = origin.position;
+        startpos = origin.localPosition;
     }
 
     // Update is called once per frame
@@ -55,7 +58,7 @@ public class Pull_Lever : MonoBehaviour
 
     void OutputVal()
     {
-        AnalogOutput = Vector3.Distance(startpos, Model.transform.position);
+        AnalogOutput = Vector3.Distance(startpos, Model.transform.localPosition);
 
         AnalogOutput = ExtensionMethods.Remap(AnalogOutput, maximumDistance, minimumDistance, minOutput, maxOutput);
 
@@ -69,11 +72,13 @@ public class Pull_Lever : MonoBehaviour
     {
         if (LActivated)
         {
-            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, LhandModel.transform.position));
+            HandTracker.position = LhandModel.transform.position;
+            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, HandTracker.localPosition));
         }
         if (RActivated)
         {
-            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, RhandModel.transform.position));
+            HandTracker.position = RhandModel.transform.position;
+            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, HandTracker.localPosition));
         }
 
         if(Model.localPosition.z < maximumDistance)

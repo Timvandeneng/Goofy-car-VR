@@ -36,9 +36,12 @@ public class Module : MonoBehaviour {
         }
 
         // Trim userInputs
-        while(userInputs.Count > combination.Count) {
-            userInputs.Remove(userInputs[0]);
+        while (userInputs.Count > combination.Count)
+        {
+            userInputs.RemoveAt(0);
         }
+
+        Debug.Log(userInputs[0]);
 
         if(userInputs.SequenceEqual(combination)) {
             switch(moduleType) {
@@ -68,7 +71,7 @@ public class Module : MonoBehaviour {
 
     private void TurnLogic()
     {
-        gameManager.carSteering = analogInput.analogValue;
+        gameManager.carSteering = (analogInput.analogValue * 2) - 1;
         Debug.Log("Turn Logic");
     }
 

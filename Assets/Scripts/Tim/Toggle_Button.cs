@@ -11,11 +11,17 @@ public class Toggle_Button : MonoBehaviour
     [SerializeField] private Vector3 pushedpos;
     public bool toggled = false;
 
+    [Header("Debug settings")]
+    [SerializeField] private float DebugTimer;
+    private float resetDebug;
+    private bool canToggle = true;
+
     private void Awake()
     {
         moduleInput = GetComponent<ModuleInput>();
 
-        moduleInput.type = ModuleInput.InputType.Analog;
+        moduleInput.type = ModuleInput.InputType.Digital;
+        resetDebug = DebugTimer;
     }
 
     // Update is called once per frame
@@ -31,13 +37,27 @@ public class Toggle_Button : MonoBehaviour
         }
 
         moduleInput.digitalValue = toggled;
+
+        if (!canToggle)
+        {
+            DebugTimer -= Time.deltaTime;
+            if(DebugTimer < 0)
+            {
+                DebugTimer = resetDebug;
+                canToggle = true;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Rhand") || other.CompareTag("Lhand"))
         {
-            toggled = !toggled;
+            if (canToggle)
+            {
+                toggled = !toggled;
+                canToggle = false;
+            }
         }
     }
 }
