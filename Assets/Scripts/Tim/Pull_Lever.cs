@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ModuleInput))]
 public class Pull_Lever : MonoBehaviour
 {
     private ModuleInput moduleInput;

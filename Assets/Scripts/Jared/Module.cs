@@ -29,19 +29,16 @@ public class Module : MonoBehaviour {
     private void Update()
     {
         foreach(ModuleInput input in combination) {
-            if(input.type == ModuleInput.InputType.Digital && input.digitalValue) {
+            if(input.type == ModuleInput.InputType.Digital && input.onToggle) {
+                //Debug.Log($"onToggle: {input.onToggle}");
                 userInputs.Add(input);
-                input.digitalValue = false;
             }
         }
 
         // Trim userInputs
-        while (userInputs.Count > combination.Count)
-        {
+        while(userInputs.Count > combination.Count) {
             userInputs.RemoveAt(0);
         }
-
-        Debug.Log(userInputs[0]);
 
         if(userInputs.SequenceEqual(combination)) {
             switch(moduleType) {
@@ -56,7 +53,7 @@ public class Module : MonoBehaviour {
                     break;
                 case ModuleType.Breakdown:
                     break;
-                case ModuleType.None: 
+                case ModuleType.None:
                 default:
                     break;
             }
@@ -65,8 +62,10 @@ public class Module : MonoBehaviour {
 
     private void AccelerationLogic()
     {
-        gameManager.carAcceleration = analogInput.analogValue;
-        Debug.Log("Acceleration Logic");
+        if(analogInput != null) {
+            gameManager.carAcceleration = analogInput.analogValue;
+            Debug.Log("Acceleration Logic");
+        }
     }
 
     private void TurnLogic()
@@ -77,6 +76,8 @@ public class Module : MonoBehaviour {
 
     private void BrakeLogic()
     {
-        gameManager.carAcceleration = -analogInput.analogValue;
+        if(analogInput != null) {
+            gameManager.carAcceleration = -analogInput.analogValue;
+        }
     }
 }
