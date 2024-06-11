@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5068410066412779386}
   - component: {fileID: 4320368692206304374}
+  - component: {fileID: 7287067103801194617}
   - component: {fileID: 2299100348355102965}
   m_Layer: 0
   m_Name: Toggle Button
@@ -26,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5074914578000720907}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.316, y: 0.5178, z: -0.13999999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5227, y: 0.5227, z: 0.5227}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2892725463964486378}
@@ -50,12 +51,27 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.32, y: 0.22433853, z: 0.3}
+  m_Center: {x: 0, y: 0.05, z: 0.04390246}
+--- !u!114 &7287067103801194617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074914578000720907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d9099e38228c141a4101d2c9ca83d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  digitalValue: 0
+  analogValue: 0
 --- !u!114 &2299100348355102965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +88,7 @@ MonoBehaviour:
   restingpos: {x: 0, y: 0.3593258, z: 0}
   pushedpos: {x: 0, y: 0.132, z: 0}
   toggled: 0
+  DebugTimer: 0.5
 --- !u!1 &9010316644937764772
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 287024cbabecfc84c89e38ffc1a707ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.013
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 287024cbabecfc84c89e38ffc1a707ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -185,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 287024cbabecfc84c89e38ffc1a707ad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.042
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 287024cbabecfc84c89e38ffc1a707ad, type: 3}
       propertyPath: m_LocalRotation.w
