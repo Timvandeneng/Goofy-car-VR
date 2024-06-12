@@ -65,7 +65,7 @@ public class Pull_Lever : MonoBehaviour
 
         AnalogOutput = AnalogOutput - 3;
 
-        moduleInput.analogValue = AnalogOutput;
+        moduleInput.analogValue = -AnalogOutput;
     }
 
    
