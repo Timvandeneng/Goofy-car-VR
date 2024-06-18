@@ -110,10 +110,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8779470602087521914}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.316, y: 0.5178, z: -0.13999999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1157220409153826711}
   - {fileID: 3048118105176492256}
@@ -138,8 +138,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!114 &2437737248971898960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +156,7 @@ MonoBehaviour:
   restingpos: {x: 0, y: 0.3593258, z: 0}
   pushedpos: {x: 0, y: 0.132, z: 0}
   toggled: 0
+  DebugTimer: 0
 --- !u!114 &6141271265190886385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ MonoBehaviour:
   type: 0
   digitalValue: 0
   analogValue: 0
-  onToggle: 0
+  completed: 0
 --- !u!1001 &3298796812491960075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267,7 +268,7 @@ PrefabInstance:
     - target: {fileID: 7071182760956848314, guid: 287024cbabecfc84c89e38ffc1a707ad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fae0734d763842343a0728a62c0698a3, type: 2}
+      objectReference: {fileID: 2100000, guid: efff7d8aac2656c4ca82a67efebb4423, type: 2}
     - target: {fileID: 7202271454713460447, guid: 287024cbabecfc84c89e38ffc1a707ad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
