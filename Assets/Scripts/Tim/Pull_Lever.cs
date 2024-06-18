@@ -47,6 +47,9 @@ public class Pull_Lever : MonoBehaviour
     {
         controller = GameObject.FindFirstObjectByType<Controller_manager>();
         startpos = origin.localPosition;
+
+        LhandModel = GameObject.FindGameObjectWithTag("Lhand");
+        RhandModel = GameObject.FindGameObjectWithTag("Rhand");
     }
 
     // Update is called once per frame
