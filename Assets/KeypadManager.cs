@@ -51,7 +51,7 @@ public class KeypadManager : MonoBehaviour
                 {
                     Keys[i].Correct();
                 }
-                CountDown = true;
+                //CountDown = true;
                 moduleInput.completed = true;
                 Combination = "";
             }
