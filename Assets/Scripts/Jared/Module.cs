@@ -70,7 +70,7 @@ public class Module : MonoBehaviour {
 
     private void TurnLogic()
     {
-        gameManager.carSteering = (analogInput.analogValue - 2) * 45;
+        gameManager.carSteering = (analogInput.analogValue - 2) * 10;
         Debug.Log("Turn Logic");
     }
 
