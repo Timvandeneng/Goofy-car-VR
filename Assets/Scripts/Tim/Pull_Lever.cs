@@ -87,11 +87,11 @@ public class Pull_Lever : MonoBehaviour {
     {
         if(LActivated) {
             HandTracker.position = LhandModel.transform.position;
-            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, HandTracker.localPosition));
+            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -(startpos.z - HandTracker.localPosition.z));
         }
         if(RActivated) {
             HandTracker.position = RhandModel.transform.position;
-            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, HandTracker.localPosition));
+            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -(startpos.z - HandTracker.localPosition.z));
         }
 
         if(Model.localPosition.z < maxClamp)
