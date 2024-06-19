@@ -4593,6 +4593,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3264677832008201382, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
+      propertyPath: maximumDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264677832008201382, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
+      propertyPath: minimumDistance
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 3356022073295306006, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4669,6 +4677,14 @@ PrefabInstance:
       propertyPath: maximumDistance
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6435839270534614405, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
+      propertyPath: maximumDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435839270534614405, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
+      propertyPath: minimumDistance
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6706826842794085772, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
       propertyPath: maximumDistance
       value: 0.4
@@ -4688,6 +4704,14 @@ PrefabInstance:
     - target: {fileID: 7868205824474084343, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
       propertyPath: maximumDistance
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143353785149099163, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
+      propertyPath: maximumDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143353785149099163, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
+      propertyPath: minimumDistance
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8180339745966337056, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4728,6 +4752,14 @@ PrefabInstance:
     - target: {fileID: 8180339745966337056, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224264750571499182, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
+      propertyPath: maximumDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224264750571499182, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
+      propertyPath: minimumDistance
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8369326979405912991, guid: a5977e32aeec79641b79fc6476f096ae, type: 3}
       propertyPath: maxOutput
