@@ -37,7 +37,7 @@ public class Car_Physics : MonoBehaviour
 
         SpeedHandler();
 
-        desiredAcceleration = gameManager.carAcceleration;
+        desiredAcceleration = gameManager.carAcceleration + gameManager.carDeceleration;
         desiredSteering = gameManager.carSteering;
     }
 

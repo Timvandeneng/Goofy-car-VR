@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public bool canControl;
 
     [HideInInspector] public float carAcceleration;
+    [HideInInspector] public float carDeceleration;
     [HideInInspector] public float carSteering;
 
     private void Update()
