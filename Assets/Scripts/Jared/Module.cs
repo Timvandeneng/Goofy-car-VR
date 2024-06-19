@@ -62,10 +62,8 @@ public class Module : MonoBehaviour {
 
     private void AccelerationLogic()
     {
-        if(analogInput != null) {
-            gameManager.carAcceleration = analogInput.analogValue;
-            Debug.Log("Acceleration Logic");
-        }
+        gameManager.carAcceleration = analogInput.analogValue;
+        Debug.Log("Acceleration Logic");
     }
 
     private void TurnLogic()
@@ -76,8 +74,7 @@ public class Module : MonoBehaviour {
 
     private void BrakeLogic()
     {
-        if(analogInput != null) {
-            gameManager.carAcceleration = -analogInput.analogValue;
-        }
+        gameManager.carDeceleration = -analogInput.analogValue;
+        Debug.Log("Slow down Logic");
     }
 }
