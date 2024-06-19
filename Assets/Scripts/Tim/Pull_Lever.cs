@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ModuleInput))]
-public class Pull_Lever : MonoBehaviour
-{
+public class Pull_Lever : MonoBehaviour {
     private ModuleInput moduleInput;
 
     [Header("Model Transforms")]
@@ -13,15 +12,18 @@ public class Pull_Lever : MonoBehaviour
 
     [Header("Hand physics")]
     public GameObject LhandModel;
-    public  GameObject LhandModelDummy;
+    public GameObject LhandModelDummy;
     public GameObject RhandModel;
     public GameObject RhandModelDummy;
 
     [Header("Lever physics")]
-    [SerializeField] private float maximumDistance;
     [SerializeField] private float minimumDistance;
+    [SerializeField] private float maximumDistance;
     [SerializeField] private float minOutput;
     [SerializeField] private float maxOutput;
+
+    private float minClamp;
+    private float maxClamp;
 
     [Header("Working physics")]
     [SerializeField] private Transform HandTracker;
@@ -35,21 +37,31 @@ public class Pull_Lever : MonoBehaviour
     private Controller_manager controller;
     private Vector3 startpos;
 
+    //DEBUG
+    private GameObject debugPoint;
+    private GameObject secondDebugPoint;
+
     private void Awake()
     {
         moduleInput = GetComponent<ModuleInput>();
 
         moduleInput.type = ModuleInput.InputType.Analog;
+
+        minClamp = -minimumDistance;
+        maxClamp = -maximumDistance;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GameObject.FindFirstObjectByType<Controller_manager>();
-        startpos = origin.localPosition;
+        startpos = Vector3.zero;
 
         LhandModel = GameObject.FindGameObjectWithTag("Lhand");
         RhandModel = GameObject.FindGameObjectWithTag("Rhand");
+
+        debugPoint = GameObject.Find("DebugPoint");
+        secondDebugPoint = GameObject.Find("SecondDebugPoint");
     }
 
     // Update is called once per frame
@@ -58,52 +70,47 @@ public class Pull_Lever : MonoBehaviour
         CheckForReset();
         MoveIfHeld();
         OutputVal();
+
+        debugPoint.transform.position = startpos;
+        secondDebugPoint.transform.position = transform.position + Model.transform.localPosition;
     }
 
     void OutputVal()
     {
-        AnalogOutput = Vector3.Distance(startpos, Model.transform.localPosition);
-
-        AnalogOutput = ExtensionMethods.Remap(AnalogOutput, maximumDistance, minimumDistance, minOutput, maxOutput);
-
-        AnalogOutput = AnalogOutput - 3;
-
+        AnalogOutput = Mathf.Abs(Vector3.Distance(startpos, Model.transform.localPosition));
+        AnalogOutput = ExtensionMethods.Remap(AnalogOutput, minimumDistance, maximumDistance, minOutput, maxOutput);
         moduleInput.analogValue = AnalogOutput;
     }
 
-   
+
     void MoveIfHeld()
     {
-        if (LActivated)
-        {
+        if(LActivated) {
             HandTracker.position = LhandModel.transform.position;
             Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, HandTracker.localPosition));
         }
-        if (RActivated)
-        {
+        if(RActivated) {
             HandTracker.position = RhandModel.transform.position;
             Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, -Vector3.Distance(startpos, HandTracker.localPosition));
         }
 
-        if(Model.localPosition.z < maximumDistance)
-            Model.localPosition =new Vector3(Model.localPosition.x, Model.localPosition.y, maximumDistance);
-        if (Model.localPosition.z > minimumDistance)
-            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, minimumDistance);
+        if(Model.localPosition.z < maxClamp)
+            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, maxClamp);
+        if(Model.localPosition.z > minClamp)
+            Model.localPosition = new Vector3(Model.localPosition.x, Model.localPosition.y, minClamp);
 
     }
 
     void CheckForReset()
     {
 
-        if (LActivated && !controller.leftHandTrigger)
-        {
+        if(LActivated && !controller.leftHandTrigger) {
             LhandModel.SetActive(true);
             LhandModelDummy.SetActive(false);
             LActivated = false;
         }
 
-        if (RActivated && !controller.rightHandTrigger)
-        {
+        if(RActivated && !controller.rightHandTrigger) {
             RhandModel.SetActive(true);
             RhandModelDummy.SetActive(false);
             RActivated = false;
@@ -112,15 +119,13 @@ public class Pull_Lever : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Lhand") && controller.leftHandTrigger && !RActivated && !LActivated)
-        {
+        if(other.CompareTag("Lhand") && controller.leftHandTrigger && !RActivated && !LActivated) {
             LhandModel.SetActive(false);
             LhandModelDummy.SetActive(true);
             LActivated = true;
         }
 
-        if(other.CompareTag("Rhand") && controller.rightHandTrigger && !RActivated && !LActivated)
-        {
+        if(other.CompareTag("Rhand") && controller.rightHandTrigger && !RActivated && !LActivated) {
             RhandModel.SetActive(false);
             RhandModelDummy.SetActive(true);
             RActivated = true;
@@ -128,20 +133,9 @@ public class Pull_Lever : MonoBehaviour
     }
 }
 
-public static class ExtensionMethods
-{
-    public static float Remap(this float from, float fromMin, float fromMax, float toMin, float toMax)
+public static class ExtensionMethods {
+    public static float Remap(this float value, float from1, float to1, float from2, float to2)
     {
-        var fromAbs = from - fromMin;
-        var fromMaxAbs = fromMax - fromMin;
-
-        var normal = fromAbs / fromMaxAbs;
-
-        var toMaxAbs = toMax - toMin;
-        var toAbs = toMaxAbs * normal;
-
-        var to = toAbs + toMin;
-
-        return to;
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
 }
