@@ -9,7 +9,6 @@ public class ModuleSpawner : MonoBehaviour {
     public List<GameObject> AccelerateModules = new List<GameObject>();
     public List<GameObject> TurnModules = new List<GameObject>();
     public List<GameObject> BrakeModules = new List<GameObject>();
-    public List<GameObject> BreakdownModules = new List<GameObject>();
     public List<GameObject> DummyModules = new List<GameObject>();
 
     private List<int> moduleSelectionBag = new List<int>(); // Similar to a tetris bag, where you load all the numbers at once and shuffle so that you don't get any duplicates
@@ -49,13 +48,6 @@ public class ModuleSpawner : MonoBehaviour {
                     currentBrakeModule.transform.localPosition = Vector3.zero;
                     currentBrakeModule.transform.localRotation = Quaternion.identity;
                     //currentBrakeModule.transform.localScale = Vector3.one;
-                    break;
-                case 4:
-                    GameObject currentBreakdownModule = BreakdownModules[UnityEngine.Random.Range(0, BreakdownModules.Count)];
-                    currentBreakdownModule.transform.SetParent(moduleSpawner.transform);
-                    currentBreakdownModule.transform.localPosition = Vector3.zero;
-                    currentBreakdownModule.transform.localRotation = Quaternion.identity;
-                    //currentBreakdownModule.transform.localScale = Vector3.one;
                     break;
                 default:
                     GameObject currentDummyModule = DummyModules[UnityEngine.Random.Range(0, DummyModules.Count)];
